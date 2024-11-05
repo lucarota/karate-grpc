@@ -1,5 +1,7 @@
 package demo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.github.thinkerou.karate.helper.Main;
 import com.github.thinkerou.karate.utils.MockRedisHelperSingleton;
 import com.intuit.karate.Results;
@@ -7,9 +9,9 @@ import com.intuit.karate.Runner;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import org.apache.commons.io.FileUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import testing.ServerStart;
 
 import java.io.File;
@@ -17,9 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -32,7 +31,7 @@ public abstract class AbstractTestBase {
     protected abstract String getFeatures();
     private static ServerStart server;
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeClass() throws Exception {
         if (server == null) {
             server = new ServerStart();
@@ -49,7 +48,7 @@ public abstract class AbstractTestBase {
                 .outputJunitXml(true)
                 .parallel(THREAD_COUNT);
         generateReport(results.getReportDir());
-        assertEquals(results.getErrorMessages(), 0, results.getFailCount());
+        assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
     /**
@@ -64,7 +63,7 @@ public abstract class AbstractTestBase {
         reportBuilder.generateReports();
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterClass() throws IOException {
         MockRedisHelperSingleton.INSTANCE.stop();
     }

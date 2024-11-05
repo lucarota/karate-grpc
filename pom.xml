@@ -42,12 +42,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
-        <karate.version>1.2.0</karate.version>
+        <karate.version>1.5.0</karate.version>
         <cucumber.reporting.version>3.20.0</cucumber.reporting.version>
         <grpc.version>1.47.0</grpc.version>
         <protobuf.version>3.21.2</protobuf.version>
         <protoc.version>3.21.1</protoc.version>
         <gson.version>2.8.5</gson.version>
+        <protobuf.maven.plugin.version>2.6.5</protobuf.maven.plugin.version>
     </properties>
 
     <modules>

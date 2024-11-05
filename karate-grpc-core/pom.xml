@@ -90,7 +90,7 @@
             <version>1.0.3</version>
         </dependency>
         <dependency>
-            <groupId>com.intuit.karate</groupId>
+            <groupId>io.karatelabs</groupId>
             <artifactId>karate-core</artifactId>
             <version>${karate.version}</version>
         </dependency>
